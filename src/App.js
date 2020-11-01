@@ -34,6 +34,12 @@ class App extends Component{
     }
   }
 
+  handlePercent = val =>{
+    if(val === "%"){
+      this.setState({input: this.state.input + val.replace("%","/100")})
+    }
+  }
+
   render(){
     return(
       <div className="app">
@@ -64,6 +70,7 @@ class App extends Component{
               <div className="row">
                   <Button handleClick={this.addToInput}>0</Button>
                   <Button handleClick={this.addToInput}>.</Button>
+                  <Button handleClick={this.handlePercent}>%</Button>
                   <Button handleClick={this.handleEqual}>=</Button>
                   <Button handleClick={this.addToInput}>/</Button>
               </div>
